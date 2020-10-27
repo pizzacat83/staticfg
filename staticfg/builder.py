@@ -280,7 +280,7 @@ class CFGBuilder(ast.NodeVisitor):
                 return node.id
             elif type(node) == ast.Attribute:
                 # Recursion on series of calls to attributes.
-                func_name = visit_func(node.value)
+                func_name = visit_func(node.value) or ''
                 func_name += "." + node.attr
                 return func_name
             elif type(node) == ast.Str:
